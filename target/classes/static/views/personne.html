@@ -1,0 +1,109 @@
+<div>
+        <div class="container">
+          <h3 class="header center">Ajouter une nouvelle personne&nbsp&nbsp <i class="fa fa-user-circle"></i></h3>
+
+          <input-field>
+            <input type="text" ng-model="personne.nom" length="50" class="validate pad" required>
+            <label>Nom et prénoms</label>
+          </input-field>
+          <div class="row pad col-s12">
+              <label for="inputCreated">Date</label>
+              <input input-date
+                  ng-change="updateDate()"
+                  ng-model="personne.dateNaissance"
+                  type="text"
+                  name="created"
+                  id="inputCreated"
+                  ng-model="currentTime"
+                  container=""
+                  format="yyyy-mm-dd"
+                  months-full="{{ month }}"
+                  months-short="{{ monthShort }}"
+                  weekdays-full="{{ weekdaysFull }}"
+                  weekdays-short="{{ weekdaysShort }}"
+                  weekdays-letter="{{ weekdaysLetter }}"
+                  disable="disable"
+                  min="{{ minDate }}"
+                  max="{{ maxDate }}"
+                  today="today"
+                  first-day="1"
+                  clear="clear"
+                  close="close"
+                  select-years="15"
+                  on-start="onStart()"
+                  on-render="onRender()"
+                  on-open="onOpen()"
+                  on-close="onClose()"
+                  on-set="onSet()"
+                  on-stop="onStop()" />
+              </div>
+          <input-field>
+            <input type="text" ng-model="personne.lieuNaissance" length="50" class="validate pad" required>
+            <label>Lieu de naissance</label>
+          </input-field>
+          <input-field>
+            <input type="text" ng-model="personne.nomPere" length="50" class="validate pad" required>
+            <label>Nom du père</label>
+          </input-field>
+          <input-field>
+            <input type="text" ng-model="personne.nomMere" length="50" class="validate pad" required>
+            <label>Nom de la mère</label>
+          </input-field>
+          <input-field>
+            <input type="text" ng-model="personne.departement" length="50" class="validate pad" required>
+            <label>Département d'origine</label>
+          </input-field>
+          <div class="row pad col s-12">
+            <div class="row">
+              <div class="input-field col s12">
+                <select material-select watch ng-model="region">
+                  <option value="EN">Extrême-Nord</option>
+                  <option value="NO">Nord</option>
+                  <option value="AD">Adamaoua</option>
+                  <option value="ES">Est</option>
+                  <option value="CE">Centre</option>
+                  <option value="LT">Littoral</option>
+                  <option value="OU">Ouest</option>
+                  <option value="SO">Sud-Ouest</option>
+                  <option value="NO">Nord-Ouest</option>
+                  <option value="SU">Sud</option>
+                </select>
+                <label>Région d'origine</label>
+              </div>
+            </div>
+          </div>
+          <input-field>
+            <input type="text" ng-model="personne.etatCivil" length="50" class="validate pad" required>
+            <label>État civil</label>
+          </input-field>
+          <!-- Modal Trigger -->
+          <div class="col">
+              <a class='btn blue darken-2 waves-effect waves-light' data-target='confirmationModal' modal>Ajouter <i class="fa fa-plus right"></i></a>
+              <button class="btn blue darken-2 waves-effect waves-light" ng-click="reset()">Effacer <i class="fa fa-eraser right"></i></button>
+          </div>
+          <!-- Modal Structure -->
+          <div id="confirmationModal" class="modal">
+              <div class="modal-content center">
+                  <div class="title">
+                    <h5>Est-ce bien les informations que vous voulez ajouter?</h5>
+                  </div>
+                  <div class="row">
+                          <p class="left-align">Nom et prénom:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{personne.nom}}</p>
+                          <p class="left-align">Date de naissance:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{personne.dateNaissance}}&nbsp&nbsp </p>
+                          <p class="left-align">Lieu de naissance:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{personne.lieuNaissance}}&nbsp&nbsp</p>
+                          <p class="left-align">Nom du père:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{personne.nomPere}}</p>
+                          <p class="left-align">Nom de la mère:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{personne.nomMere}}</p>
+                          <p class="left-align">Département d'origine:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{personne.departement}}</p>
+                          <p class="left-align">Région d'origine:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{personne.region}}</p>
+                          <p class="left-align">Etat civil:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{personne.etatCivil}}</p>
+                  </div>
+
+              </div>
+              <div class="modal-footer">
+                  <a href="#/personnes" class=" modal-action modal-close waves-effect waves-green btn-flat center" ng-click="save()">Oui</a>
+                  <a href="" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="edit(categorie)">Non</a>
+              </div>
+          </div>
+        </div>
+
+</div>

@@ -1,0 +1,68 @@
+<!--
+    Team lost
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Angular-Materialize/materialize.min.css">
+    <link rel="stylesheet" href="Angular-Materialize/materialize.clockpicker.css">
+    <link rel="stylesheet" href="css/myStyle.css">
+    <link rel="stylesheet" href="css/style_tests.css">
+  </head>
+
+  <body ng-app="stocksApp">
+    <script type="text/javascript" src="Angular-Materialize/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="Angular-Materialize/materialize.min.js"></script>
+    <script type="text/javascript" src="Angular-Materialize/angular.1.6.5.min.js"></script>
+    <script type="text/javascript" src="Angular-Materialize/materialize.clockpicker.js"></script>
+    <script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/controllers/personneControler.js" type="text/javascript"></script>
+    <script src="js/controllers/casierControler.js" type="text/javascript"></script>
+    <script src="js/controllers/delitControler.js" type="text/javascript"></script>
+    <script type="text/javascript" src="Angular-Materialize/angular-resource.js"></script>
+    <script type="text/javascript" src="Angular-Materialize/underscore.js"></script>
+    <script type="text/javascript" src="Angular-Materialize/restangular.js"></script>
+    <script type="text/javascript" src="Angular-Materialize/angular-materialize.min.js"></script>
+    <script type="text/javascript" src="Angular-Materialize/pdfmake.min.js"></script>
+    <script type="text/javascript" src="Angular-Materialize/vfs_fonts.js"></script>
+    <script type="text/javascript" src="Angular-Materialize/chartjs.js"></script>
+    <script type="text/javascript" src="Angular-Materialize/sockjs-0.3.min.js"></script>
+    <script type="text/javascript" src="Angular-Materialize/stomp.min.js"></script>
+
+
+
+    <ul id='dropdown1' class='dropdown-content'>
+        <li><a href="#/personnes">Personne</a></li>
+        <li><a href="#/casiers">Casier</a></li>
+        <li><a href="#/delits">Delit</a></li>
+    </ul>
+
+      <nav class="spacer">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo right">GECAJU</a>
+          <ul id="nav-mobile" class="left hide-on-med-and-down ">
+            <li class="active"> <a class='dropdown-button' href="#" data-activates='dropdown1'>Nouveau</a></li>
+            <li><a href="#!">Modifier</a></li>
+            <li><a href="#casiers/">Casier</a></li>
+          </ul>
+        </div>
+    </nav>
+    <div ng-view></div>
+    <script>
+    $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrainWidth: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+      stopPropagation: false // Stops event propagation
+    }
+  );
+    </script>
+   </body>
+</html>

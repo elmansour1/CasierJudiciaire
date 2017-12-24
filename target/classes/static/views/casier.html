@@ -1,0 +1,22 @@
+<div ng-init="onload()">
+      <h3 class="header center">Générer un casier judiciaire&nbsp&nbsp <i class="fa fa-balance-scale"></i></h3>
+        <div class="container ">
+          <div class="row pad col s-12">
+            <div class="row">
+              <div class="input-field col s12">
+                  <select ng-options="personne.nom_prenom for personne in personnes" class="" ng-change="updatePersonne(p)" material-select watch ng-model="p" id="Personne"  >
+
+                </select>
+                <label>Selectionner une personne</label>
+              </div>
+            </div>
+
+          </div>
+          <div class="col pad">
+              <a class='btn blue darken-2 waves-effect waves-light' ng-click="pdf()">Générer <i class="fa fa-magic right"></i></a>
+              <button class="btn blue darken-2 waves-effect waves-light" ng-click="reset()">Effacer <i class="fa fa-eraser right"></i></button>
+          </div>
+        </div>
+
+        <p>Personne:{{p}}</p>
+</div>
